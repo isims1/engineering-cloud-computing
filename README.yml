@@ -1,0 +1,19 @@
+---
+owner:
+  firstname: "Ian"
+  lastname: "Sims"
+  hid: "fa18-516-22"
+  community: "e516"
+section:
+    - title: AWS-Admin-Access
+      url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws.md#aws-admin-access 
+    - title: AWS-CLI
+      url: https://github.com/cloudmesh-community/book/blob/master/chapters/iaas/aws/aws.md#aws-command-line-interface
+paper:
+    - title: AWS-EMR
+      keyword: AWS EMR
+      url: https://github.com/cloudmesh-community/book/blob/master/chapters/mapreduce/aws-emr.md       
+project:
+    - title: Open API with AWS EMR and Jupyter
+      keyword: AWS EMR
+      url: https://github.com/cloudmesh-community/fa18-516-22/blob/master/project-report/report.md

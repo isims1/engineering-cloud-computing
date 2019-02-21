@@ -1,0 +1,66 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "emrinfo"
+  description: "API to spin up an AWS EMR cluster, to check status, and to terminate."
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    name: "EMR Rest Service"
+  license:
+    name: "Apache"
+host: 18.191.50.79:8080
+basePath: /api
+schemes:
+  - http
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /emr/create/{num_of_nodes}:
+    post:
+      summary: Create EMR cluster.
+      parameters:
+        - in: path
+          name: num_of_nodes
+          required: true
+          type: integer
+          minimum: 1
+          description: The number of nodes in the cluster
+      responses:
+        200:
+          description: OK
+  /emr/info/{cluster_id}:
+    get:
+      summary: Returns EMR cluster Info.
+      parameters:
+        - in: path
+          name: cluster_id
+          required: true
+          type: string
+          minimum: 1
+          description: The cluster id for EMR
+      responses:
+        200:
+          description: OK
+  /emr/terminate/{cluster_id}:
+    delete:
+      summary: Deletes EMR cluster.
+      parameters:
+        - in: path
+          name: cluster_id
+          required: true
+          type: string
+          minimum: 1
+          description: The cluster id for EMR
+      responses:
+        200:
+          description: OK
+definitions:
+  EMR:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"

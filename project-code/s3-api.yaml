@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "s3info"
+  description: "API to query S3 bucket by file extension"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    name: "S3 Rest Service"
+  license:
+    name: "Apache"
+host: 18.191.50.79:8081
+basePath: /api
+schemes:
+  - http
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /s3:
+    get:
+      summary: Get a list of files and paths with the given file extension
+      parameters:
+        - in: query
+          name: bucket
+          required: true
+          type: string
+          minimum: 1
+          description: The S3 bucket name
+        - in: query
+          name: path
+          required: true
+          type: string
+          minimum: 1
+          description: The folder path to query
+        - in: query
+          name: extension
+          required: true
+          type: string
+          minimum: 1
+          description: The file extension to search for
+      responses:
+        200:
+          description: OK
+definitions:
+  S3:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"

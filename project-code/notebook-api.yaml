@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "notebookinfo"
+  description: "API to query jupyter notebook parameters"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    name: "Notebook Rest Service"
+  license:
+    name: "Apache"
+host: 18.191.50.79:8082
+basePath: /api
+schemes:
+  - http
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /notebook:
+    get:
+      summary: Get a list of files and paths with the given file extension
+      parameters:
+        - in: query
+          name: bucket
+          required: true
+          type: string
+          minimum: 1
+          description: The S3 bucket name
+        - in: query
+          name: path
+          required: true
+          type: string
+          minimum: 1
+          description: The folder path to query notebooks
+        - in: query
+          name: search_on
+          required: true
+          type: string
+          minimum: 1
+          description: The parameter text to look for
+      responses:
+        200:
+          description: OK
+definitions:
+  NOTEBOOK:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"
